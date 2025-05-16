@@ -24,3 +24,30 @@ function addBookToLibrary(title, author, pagesNumber) {
 }
 
 addBookToLibrary("awikwok", "aku", 100);
+addBookToLibrary("awikwok", "aku", 100);
+addBookToLibrary("awikwok", "aku", 100);
+addBookToLibrary("awikwok", "aku", 100);
+addBookToLibrary("awikwok", "aku", 100);
+addBookToLibrary("awikwok", "aku", 100);
+addBookToLibrary("awikwok", "aku", 100);
+
+function displayBook(books) {
+  const cardList = document.getElementById("cardList");
+
+  myLibrary.forEach(function (book) {
+    const card = document.createElement("div");
+    const cardHeader = document.createElement("div");
+    const cardBody = document.createElement("div");
+    const li = document.createElement("li");
+    card.classList.add("card");
+    cardHeader.classList.add("card-header");
+    cardBody.classList.add("card-body");
+    cardHeader.innerHTML = `<h1> ${book.title} </h1>`;
+    cardBody.innerText = book.info();
+    card.append(cardHeader, cardBody);
+    li.appendChild(card);
+    cardList.appendChild(li);
+  });
+}
+
+displayBook(myLibrary);
