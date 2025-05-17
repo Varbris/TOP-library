@@ -39,27 +39,42 @@ addBookBtn.addEventListener("click", function (event) {
   author = author.value;
   pageNumber = pageNumber.value;
   addBookToLibrary(title, author, pageNumber);
-  console.log(title, author, pageNumber, myLibrary);
   displayBook(myLibrary);
   modal.close(title);
 });
 
+function createCard(bookObj) {
+  const card = document.createElement("div");
+  const cardHeader = document.createElement("div");
+  const cardBody = document.createElement("div");
+  const cardOption = document.createElement("div");
+  const cardDeleteBtn = document.createElement("button");
+  const imgDelete = document.createElement("img");
+  const li = document.createElement("li");
+  card.classList.add("card");
+  cardHeader.classList.add("card-header");
+  cardBody.classList.add("card-body");
+  cardOption.classList.add("card-option");
+  cardDeleteBtn.classList.add("project-button");
+  imgDelete.setAttribute("src", "assets/icon/trash-can-outline.svg");
+  imgDelete.setAttribute("alt", "deleteButton");
+  imgDelete.setAttribute("class", "icon-size");
+  cardDeleteBtn.appendChild(imgDelete);
+  cardOption.appendChild(cardDeleteBtn);
+  cardHeader.innerHTML = `<h1> ${bookObj.title} </h1>`;
+  cardBody.innerText = bookObj.info();
+  card.append(cardHeader, cardBody, cardOption);
+  li.append(card);
+  return li;
+}
+
 function displayBook(books) {
   const cardList = document.getElementById("cardList");
   cardList.innerHTML = "";
-  myLibrary.forEach(function (book) {
-    const card = document.createElement("div");
-    const cardHeader = document.createElement("div");
-    const cardBody = document.createElement("div");
-    const li = document.createElement("li");
-    card.classList.add("card");
-    cardHeader.classList.add("card-header");
-    cardBody.classList.add("card-body");
-    cardHeader.innerHTML = `<h1> ${book.title} </h1>`;
-    cardBody.innerText = book.info();
-    card.append(cardHeader, cardBody);
-    li.appendChild(card);
-    cardList.appendChild(li);
+  books.forEach(function (book) {
+    var element = createCard(book);
+
+    cardList.appendChild(element);
   });
 }
 

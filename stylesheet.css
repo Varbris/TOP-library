@@ -115,11 +115,10 @@ caption {
   margin: auto auto;
   background: aqua;
   width: 60vw;
-  height: 75vh;
   overflow: hidden;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 50px 4fr 50px;
   align-items: center;
   justify-content: center;
   padding: 50px;
@@ -230,4 +229,10 @@ dialog::backdrop {
   outline: none;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 5px;
+}
+
+.icon-size {
+  width: 3vw;
+  height: 3vh;
+  display: inline-block;
 }
