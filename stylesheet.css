@@ -236,3 +236,10 @@ dialog::backdrop {
   height: 3vh;
   display: inline-block;
 }
+
+.delIcon {
+  background: url(assets/icon/trash-can-outline.svg) no-repeat;
+  position: relative;
+  left: 6px;
+  top: 4px;
+}
