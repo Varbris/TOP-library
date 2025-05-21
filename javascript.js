@@ -55,13 +55,37 @@ function createCard(bookObj) {
             ${bookObj.info()}
             </div>
             <div class="card-option">
-              <button class="project-button">
-              <img src="assets/icon/trash-can-outline.svg" class="icon-size"/>
+              <button class="project-button" id="deleteBook" data-bookId ="${
+                bookObj.id
+              }">
+              <span class="icon-size delIcon"></span>
               </button>
             </div>
   `;
+  card.addEventListener("click", function (event) {
+    if (event.target.matches("#deleteBook")) {
+      event.stopPropagation();
+      deleteBook(event.target.dataset.bookid, myLibrary);
+    }
+  });
   li.append(card);
   return li;
+}
+
+function deleteBook(bookId, arrayBook) {
+  var bookIndex = getBookIndex(bookId, arrayBook);
+  arrayBook.splice(bookIndex, 1);
+  console.log(arrayBook);
+}
+
+function getBookIndex(bookId, arrayBook) {
+  var bookIndex;
+  arrayBook.forEach(function (book, index) {
+    if (book.id === bookId) {
+      bookIndex = index;
+    }
+  });
+  return bookIndex;
 }
 
 function displayBook(books) {
@@ -71,12 +95,10 @@ function displayBook(books) {
     var element = createCard(book);
     cardList.appendChild(element);
   });
-  cardList.addEventListener("click", function (event) {
-    event.stopPropagation();
-    alert(event.target.id);
-  });
 }
 
 if (myLibrary.length === 0) {
   modal.showModal();
+} else {
+  displayBook(myLibrary);
 }
