@@ -240,6 +240,7 @@ dialog::backdrop {
 .delIcon {
   background: url(assets/icon/trash-can-outline.svg) no-repeat;
   position: relative;
-  left: 6px;
-  top: 4px;
+  width: 2vw;
+  z-index: 1;
+  pointer-events: none;
 }
