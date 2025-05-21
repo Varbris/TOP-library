@@ -66,6 +66,7 @@ function createCard(bookObj) {
     if (event.target.matches("#deleteBook")) {
       event.stopPropagation();
       deleteBook(event.target.dataset.bookid, myLibrary);
+      displayBook(myLibrary);
     }
   });
   li.append(card);
