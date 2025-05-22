@@ -1,4 +1,4 @@
-/* 1. Use a more-intuitive box-sizing model */
+/* 1. Use a more-intuitiveox-sizing model */
 *,
 *::before,
 *::after {
@@ -174,7 +174,6 @@ caption {
 
 .card-option .project-button:hover {
   background-color: rgba(100, 100, 100, 0.1);
-  border-radius: 50%;
 }
 .card-option .project-button:active {
   background-color: rgba(100, 100, 100, 0.6);
@@ -183,10 +182,12 @@ caption {
 
 .card-option #deleteBook:hover {
   width: 4vw;
+  background-color: rgb(172, 1, 1);
 }
 
-.card-option #toogleRead:hover {
+.card-option #toogleRead[data-isread="false"]:hover {
   width: 4vw;
+  background-color: rgba(0, 128, 0, 0.526);
 }
 
 .card-option #deleteBook {
@@ -194,15 +195,15 @@ caption {
   border-radius: 5px;
 }
 
-.card-option #toogleRead {
-  background-color: green;
+.card-option #toogleRead[data-isread="false"] {
+  background-color: rgba(128, 128, 128, 0.271);
   border-radius: 5px;
 }
 .card-option #deleteBook span {
   filter: invert();
 }
 
-.card-option #toogleRead span {
+.card-option #toogleRead span[data-isread="false"] {
   filter: invert();
 }
 .card-option ul {
@@ -233,6 +234,8 @@ dialog::backdrop {
   grid-template-columns: 1fr;
   gap: 5px;
   padding-top: 25px;
+  width: 25vw;
+  margin: 0 auto;
 }
 .newBookForm .form-row {
   display: grid;
@@ -241,14 +244,22 @@ dialog::backdrop {
 }
 
 .newBookForm .button-container {
-  padding: 3vh;
   display: grid;
-  grid-template-columns: 500px;
+  grid-template-columns: 5vw;
   justify-content: center;
+  justify-self: end;
 }
 
 .newBookForm .button-container #addBook {
-  padding: 10px 0;
+  margin-top: 2vh;
+  border-radius: 5px;
+  background-color: green;
+  outline: none;
+  border: none;
+  justify-self: end;
+}
+#addBook:hover {
+  width: 70%;
 }
 
 .newBookForm input {
@@ -280,4 +291,14 @@ dialog::backdrop {
   width: 2vw;
   left: 4px;
   top: 2px;
+}
+
+.plusIcon {
+  background: url(assets/icon/plus.svg) no-repeat;
+  width: 2vw;
+  margin: 0 auto;
+  filter: invert();
+  position: relative;
+  left: 5px;
+  top: 1px;
 }

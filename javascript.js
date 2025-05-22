@@ -60,6 +60,11 @@ function createCard(bookObj) {
               }">
               <span class="icon-size delIcon"></span>
               </button>
+              <button class="project-button" id="toogleRead" data-bookId ="${
+                bookObj.id
+              }" data-isread="false">
+              <span class="icon-size checkIcon"></span>
+              </button>
             </div>
   `;
   card.addEventListener("click", function (event) {
@@ -67,6 +72,10 @@ function createCard(bookObj) {
       event.stopPropagation();
       deleteBook(event.target.dataset.bookid, myLibrary);
       displayBook(myLibrary);
+    }
+    if (event.target.matches("#toogleRead")) {
+      event.stopPropagation();
+      console.log(event.target.dataset.isread);
     }
   });
   li.append(card);
