@@ -82,11 +82,20 @@ function createCard(bookObj) {
 function checkBook(e) {
   if (e.target.matches("#toggleRead") && e.target.dataset.isread === "false") {
     e.stopPropagation();
-    console.log(e.target.dataset.isread, e.target.dataset.bookid);
     e.target.dataset.isread = "true";
+    isBookRead(e.target.dataset.bookid, myLibrary, e.target.dataset.isread);
   } else {
     e.target.dataset.isread = "false";
+    isBookRead(e.target.dataset.bookid, myLibrary, e.target.dataset.isread);
   }
+}
+
+function isBookRead(bookId, arrayBook, evRead) {
+  var bookIndex = getBookIndex(bookId, arrayBook);
+  Book.prototype.isBookReaded = function () {
+    this.isRead = evRead;
+  };
+  arrayBook[bookIndex].isBookReaded();
 }
 
 function deleteBook(bookId, arrayBook) {
