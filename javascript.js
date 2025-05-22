@@ -23,7 +23,7 @@ function addBookToLibrary(title, author, pagesNumber) {
   myLibrary.push(book);
 }
 
-var newBookButton = document.getElementById("newButton");
+var newBookButton = document.getElementById("newBookButton");
 var modal = document.getElementById("modal");
 newBookButton.addEventListener("click", function () {
   modal.showModal();
@@ -101,7 +101,6 @@ function isBookRead(bookId, arrayBook, evRead) {
 function deleteBook(bookId, arrayBook) {
   var bookIndex = getBookIndex(bookId, arrayBook);
   arrayBook.splice(bookIndex, 1);
-  console.log(arrayBook);
 }
 
 function getBookIndex(bookId, arrayBook) {

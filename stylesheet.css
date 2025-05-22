@@ -112,19 +112,20 @@ caption {
 }
 
 .article-container {
-  margin: auto auto;
-  background: aqua;
+  margin: 50px auto;
+  background: #332d56;
   width: 60vw;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 1fr;
   grid-template-rows: 50px 4fr 50px;
   align-items: center;
   justify-content: center;
   padding: 50px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 .article-container h1 {
   justify-self: center;
+  color: white;
 }
 
 .article-container .card-button {
@@ -135,6 +136,8 @@ caption {
   list-style-type: none;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  padding: 0;
+  gap: 25px;
 }
 
 .card {
@@ -225,9 +228,23 @@ caption {
   justify-items: center;
 }
 
-.button-ton {
+.new-book-button {
+  margin-top: 5vh;
   padding: 10px 50px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: #71c0bb;
+  border-radius: 5px;
+  color: black;
+  outline: none;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.new-book-button:hover {
+  padding: 10px 50px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: #0a524d;
+  color: white;
 }
 
 .modal {
