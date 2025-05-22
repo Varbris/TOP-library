@@ -60,26 +60,33 @@ function createCard(bookObj) {
               }">
               <span class="icon-size delIcon"></span>
               </button>
-              <button class="project-button" id="toogleRead" data-bookId ="${
+              <button class="project-button" id="toggleRead" data-bookId ="${
                 bookObj.id
               }" data-isread="false">
               <span class="icon-size checkIcon"></span>
               </button>
             </div>
   `;
-  card.addEventListener("click", function (event) {
-    if (event.target.matches("#deleteBook")) {
-      event.stopPropagation();
-      deleteBook(event.target.dataset.bookid, myLibrary);
+  card.addEventListener("click", function (e) {
+    if (e.target.matches("#deleteBook")) {
+      e.stopPropagation();
+      deleteBook(e.target.dataset.bookid, myLibrary);
       displayBook(myLibrary);
     }
-    if (event.target.matches("#toogleRead")) {
-      event.stopPropagation();
-      console.log(event.target.dataset.isread);
-    }
   });
+  card.addEventListener("click", checkBook);
   li.append(card);
   return li;
+}
+
+function checkBook(e) {
+  if (e.target.matches("#toggleRead") && e.target.dataset.isread === "false") {
+    e.stopPropagation();
+    console.log(e.target.dataset.isread, e.target.dataset.bookid);
+    e.target.dataset.isread = "true";
+  } else {
+    e.target.dataset.isread = "false";
+  }
 }
 
 function deleteBook(bookId, arrayBook) {

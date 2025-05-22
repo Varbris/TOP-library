@@ -185,7 +185,12 @@ caption {
   background-color: rgb(172, 1, 1);
 }
 
-.card-option #toogleRead[data-isread="false"]:hover {
+.card-option #toggleRead[data-isread="false"]:hover {
+  width: 4vw;
+  background-color: rgba(0, 128, 0, 0.526);
+}
+
+.card-option #toggleRead[data-isread="true"]:hover {
   width: 4vw;
   background-color: rgba(0, 128, 0, 0.526);
 }
@@ -195,17 +200,23 @@ caption {
   border-radius: 5px;
 }
 
-.card-option #toogleRead[data-isread="false"] {
+.card-option #toggleRead[data-isread="false"] {
   background-color: rgba(128, 128, 128, 0.271);
+  border-radius: 5px;
+}
+
+.card-option #toggleRead[data-isread="true"] {
+  background-color: green;
   border-radius: 5px;
 }
 .card-option #deleteBook span {
   filter: invert();
 }
 
-.card-option #toogleRead span[data-isread="false"] {
+.card-option #toggleRead[data-isread="true"] span {
   filter: invert();
 }
+
 .card-option ul {
   list-style-type: none;
   display: grid;
