@@ -162,15 +162,16 @@ caption {
   grid-column: 2/3;
   margin-top: 1vh;
   align-self: center;
+  justify-self: end;
 }
 
 .card-option .project-button {
-  background-color: none;
   border: none;
   outline: none;
   background: none;
   cursor: pointer;
 }
+
 .card-option .project-button:hover {
   background-color: rgba(100, 100, 100, 0.1);
   border-radius: 50%;
@@ -178,6 +179,31 @@ caption {
 .card-option .project-button:active {
   background-color: rgba(100, 100, 100, 0.6);
   border-radius: 50%;
+}
+
+.card-option #deleteBook:hover {
+  width: 4vw;
+}
+
+.card-option #toogleRead:hover {
+  width: 4vw;
+}
+
+.card-option #deleteBook {
+  background-color: red;
+  border-radius: 5px;
+}
+
+.card-option #toogleRead {
+  background-color: green;
+  border-radius: 5px;
+}
+.card-option #deleteBook span {
+  filter: invert();
+}
+
+.card-option #toogleRead span {
+  filter: invert();
 }
 .card-option ul {
   list-style-type: none;
@@ -243,4 +269,15 @@ dialog::backdrop {
   width: 2vw;
   z-index: 1;
   pointer-events: none;
+  left: 4px;
+  top: 2px;
+}
+
+.checkIcon {
+  background: url(assets/icon/check-outline.svg) no-repeat;
+  position: relative;
+  pointer-events: none;
+  width: 2vw;
+  left: 4px;
+  top: 2px;
 }
