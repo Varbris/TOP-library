@@ -54,6 +54,12 @@ addBookBtn.addEventListener("click", function (event) {
 });
 
 function createCard(bookObj) {
+  var isRead;
+  if (bookObj.isRead === "true") {
+    isRead = true;
+  } else {
+    isRead = false;
+  }
   const card = document.createElement("div");
   const li = document.createElement("li");
   card.classList.add("card");
@@ -72,7 +78,7 @@ function createCard(bookObj) {
               </button>
               <button class="project-button" id="toggleRead" data-bookId ="${
                 bookObj.id
-              }" data-isread="false">
+              }" data-isread="${isRead}">
               <span class="icon-size checkIcon"></span>
               </button>
             </div>
@@ -81,7 +87,6 @@ function createCard(bookObj) {
     if (e.target.matches("#deleteBook")) {
       e.stopPropagation();
       deleteBook(e.target.dataset.bookid, myLibrary);
-      displayBook(myLibrary);
     }
   });
   card.addEventListener("click", checkBook);
@@ -96,7 +101,7 @@ function checkBook(e) {
     isBookRead(e.target.dataset.bookid, myLibrary, e.target.dataset.isread);
   } else if (e.target.matches("#toggleRead")) {
     e.stopPropagation();
-    console.log("awikwok");
+    e.target.dataset.isread = "false";
     isBookRead(e.target.dataset.bookid, myLibrary, e.target.dataset.isread);
   }
 }
