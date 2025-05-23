@@ -31,16 +31,26 @@ newBookButton.addEventListener("click", function () {
 
 var addBookBtn = document.getElementById("addBook");
 addBookBtn.addEventListener("click", function (event) {
-  event.preventDefault();
   var title = document.getElementById("title");
   var author = document.getElementById("author");
   var pageNumber = document.getElementById("pageNumber");
   title = title.value;
   author = author.value;
   pageNumber = pageNumber.value;
-  addBookToLibrary(title, author, pageNumber);
-  displayBook(myLibrary);
-  modal.close(title);
+
+  if (
+    title === "" ||
+    author === "" ||
+    pageNumber === "" ||
+    isNaN(pageNumber) === true
+  ) {
+    return;
+  } else {
+    event.preventDefault();
+    addBookToLibrary(title, author, pageNumber);
+    displayBook(myLibrary);
+    modal.close(title);
+  }
 });
 
 function createCard(bookObj) {

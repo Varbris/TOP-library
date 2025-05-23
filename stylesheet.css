@@ -250,11 +250,11 @@ caption {
 .modal {
   width: 50vw;
   height: 25vw;
-  margin: auto auto;
+  margin: 25vh auto;
 }
 
 dialog::backdrop {
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.518);
 }
 
 .newBookForm {

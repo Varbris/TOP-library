@@ -21,26 +21,46 @@
       </article>
       <section>
         <dialog class="modal" id="modal">
-          <form action="" method="dialog" class="newBookForm">
+          <form action="/" method="" class="newBookForm">
             <div class="form-row">
               <label for="title">Title: </label>
-              <input type="text" id="title" />
+              <input
+                type="text"
+                id="title"
+                minlength="5"
+                maxlength="100"
+                required
+              />
             </div>
             <div class="form-row">
               <label for="author">Author: </label>
-              <input type="text" id="author" />
+              <input type="text" id="author" minlength="5" maxlength="50" />
             </div>
             <div class="form-row">
               <label for="pageNumber">Number of Pages: </label>
-              <input type="tel" id="pageNumber" />
+              <input
+                type="tel"
+                id="pageNumber"
+                maxlength="4"
+                minlength="1"
+                value="0"
+                min="1"
+                max="4"
+                pattern="\d{4}"
+                required
+              />
             </div>
             <div class="button-container">
-              <button id="addBook">
+              <button type="submit" id="addBook">
                 <span class="plusIcon icon-size"></span>
               </button>
             </div>
           </form>
         </dialog>
+        <form action="">
+          <input type="text" pattern="\d{4}" required />
+          <button type="submit"></button>
+        </form>
       </section>
     </main>
     <footer>
