@@ -105,6 +105,10 @@ function isBookRead(bookId, arrayBook, evRead) {
   Book.prototype.isBookReaded = function () {
     this.isRead = evRead;
   };
+  if (arrayBook[bookIndex] === undefined) {
+    console.log("nothing to return because the data is null");
+    return;
+  }
   arrayBook[bookIndex].isBookReaded();
 }
 
