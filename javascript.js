@@ -94,8 +94,9 @@ function checkBook(e) {
     e.stopPropagation();
     e.target.dataset.isread = "true";
     isBookRead(e.target.dataset.bookid, myLibrary, e.target.dataset.isread);
-  } else {
-    e.target.dataset.isread = "false";
+  } else if (e.target.matches("#toggleRead")) {
+    e.stopPropagation();
+    console.log("awikwok");
     isBookRead(e.target.dataset.bookid, myLibrary, e.target.dataset.isread);
   }
 }
