@@ -6,13 +6,17 @@ function Book(title, author, pagesNumber) {
   this.author = author;
   this.pagesNumber = pagesNumber;
   this.info = function () {
+    var isBookReaded = " pages, not read yet";
+    if (this.isRead === "true") {
+      isBookReaded = " pages, Already Read";
+    }
     var bookInfo =
       this.title +
       " By " +
       this.author +
       ", " +
       this.pagesNumber +
-      " pages, not read yet";
+      `${isBookReaded}`;
     return bookInfo;
   };
 }
@@ -100,10 +104,12 @@ function checkBook(e) {
     e.stopPropagation();
     e.target.dataset.isread = "true";
     isBookRead(e.target.dataset.bookid, myLibrary, e.target.dataset.isread);
+    displayBook(myLibrary);
   } else if (e.target.matches("#toggleRead")) {
     e.stopPropagation();
     e.target.dataset.isread = "false";
     isBookRead(e.target.dataset.bookid, myLibrary, e.target.dataset.isread);
+    displayBook(myLibrary);
   }
 }
 
