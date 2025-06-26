@@ -1,12 +1,15 @@
 const myLibrary = [];
 
-function Book(title, author, pagesNumber) {
-  this.id = crypto.randomUUID();
-  this.title = title;
-  this.author = author;
-  this.pagesNumber = pagesNumber;
-  this.info = function () {
-    var isBookReaded = " pages, not read yet";
+class Book {
+  constructor(title, author, pagesNumber) {
+    this.id = crypto.randomUUID();
+    this.title = title;
+    this.author = author;
+    this.pagesNumber = pagesNumber;
+  }
+
+  info() {
+    let isBookReaded = " pages, not read yet";
     if (this.isRead === "true") {
       isBookReaded = " pages, Already Read";
     }
@@ -18,7 +21,7 @@ function Book(title, author, pagesNumber) {
       this.pagesNumber +
       `${isBookReaded}`;
     return bookInfo;
-  };
+  }
 }
 
 function addBookToLibrary(title, author, pagesNumber) {
